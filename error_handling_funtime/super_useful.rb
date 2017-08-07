@@ -34,15 +34,20 @@ def feed_me_a_fruit
 end
 
 class YearsError < StandardError
+end
 
-  @@message = "You can only be besties with people you've known five years or more."
+class ImposterError < StandardError
 end
 
 # PHASE 4
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
     begin
-      raise YearsError if yrs_known < 5
+      if yrs_known < 5
+        raise YearsError, "You can only be besties with people you've known five years or more."
+      elsif name.length <= 0 || fav_pastime <= 0
+        raise ImposterError, "You need to know your friend's name and pastime."
+      end
     @name = name
     @yrs_known = yrs_known
     @fav_pastime = fav_pastime
