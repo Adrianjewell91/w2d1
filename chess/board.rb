@@ -57,14 +57,13 @@ class Board
   def move_piece(start_pos, end_pos)
     if self[start_pos] == NullPiece.instance
       raise PositionError, "No piece in start position"
-    elsif self[end_pos] != NullPiece.instance
-      raise PositionError, "End position taken"
+    elsif self[end_pos].color == self[start_pos].color
+      raise PositionError, "End position friendly"
     else
       self[end_pos] = self[start_pos]
       self[start_pos] = NullPiece.instance
       self[end_pos].pos = end_pos
     end
   end
-
 
 end

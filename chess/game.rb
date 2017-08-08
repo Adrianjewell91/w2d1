@@ -21,6 +21,7 @@ class Game
   def take_turn
     start_end = [nil, nil].map { |el| render_loop }
     @board.move_piece(start_end[0], start_end[1])
+  rescue PositionError
     # @display.render
   end
 

@@ -3,8 +3,8 @@ require 'singleton'
 
 class Piece
   attr_accessor :pos
-  attr_reader :icon
-  
+  attr_reader :icon, :color
+
   def initialize(pos)
     @pos = pos
   end
@@ -30,6 +30,7 @@ class Bishop < Piece
 
   def initialize(pos, color)
     @icon = @@icon[color]
+    @color = color
     super(pos)
   end
 
@@ -46,6 +47,7 @@ class Rook < Piece
 
   def initialize(pos, color)
     @icon = @@icon[color]
+    @color = color
     super(pos)
   end
 
@@ -63,6 +65,7 @@ class Queen < Piece
 
   def initialize(pos, color)
     @icon = @@icon[color]
+    @color = color
     super(pos)
   end
 
@@ -78,6 +81,7 @@ class King < Piece
 
   def initialize(pos, color)
     @icon = @@icon[color]
+    @color = color
     super(pos)
   end
 
@@ -93,6 +97,7 @@ class Knight < Piece
 
   def initialize(pos, color)
     @icon = @@icon[color]
+    @color = color
     super(pos)
   end
 
@@ -108,6 +113,7 @@ class Pawn < Piece
 
   def initialize(pos, color)
     @icon = @@icon[color]
+    @color = color
     super(pos)
   end
 
