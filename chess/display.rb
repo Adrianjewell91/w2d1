@@ -12,7 +12,7 @@ class Display
   def render_loop
     render
     while true
-      @cursor.get_input
+      @cursor.get_input # results in user entered position
       system("clear")
       render
     end
