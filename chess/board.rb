@@ -3,6 +3,8 @@ require_relative 'piece'
 require_relative 'error'
 
 class Board
+  attr_accessor :grid
+
   def initialize
     @grid = Array.new(8) { Array.new(8) }
     # byebug

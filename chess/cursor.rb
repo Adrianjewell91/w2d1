@@ -89,11 +89,11 @@ class Cursor
 
   def update_pos(diff)
     new_pos = [ @cursor_pos[0]+diff[0] , @cursor_pos[1]+diff[1] ]
-    if new_pos.all? { |el| el.between(0,7) }
+    if new_pos.all? { |el| el.between?(0,7) }
       @cursor_pos = new_pos
     else
       @cursor_pos
     end
   end
-  
+
 end
