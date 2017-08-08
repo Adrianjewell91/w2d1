@@ -1,22 +1,23 @@
-require 'byebug'
 require 'colorize'
 require_relative 'cursor.rb'
 require_relative 'board.rb'
 
 class Display
+  attr_accessor :cursor
+
   def initialize(board)
     @board = board
     @cursor = Cursor.new([0,0], @board)
   end
 
-  def render_loop
-    render
-    while true
-      @cursor.get_input # results in user entered position
-      system("clear")
-      render
-    end
-  end
+  # def render_loop
+  #   render
+  #   while true
+  #     @cursor.get_input # results in user entered position
+  #     system("clear")
+  #     render
+  #   end
+  # end
 
   def render
     puts "   #{(0..7).to_a.join('   ')}"
