@@ -20,7 +20,7 @@ class Display
   def render
     puts "   #{(0..7).to_a.join('   ')}"
     (0..7).each do |row|
-      puts "#{row} #{print_row(@board.grid[row] , row).join(' ')}"
+      puts "#{row} #{print_row(@board.grid[row] , row).join('|')}"
       puts
     end
   end
