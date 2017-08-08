@@ -11,7 +11,7 @@ class Game
 
   def setup
     @board.populate
-    @display.render
+
   end
 
   def play
@@ -21,15 +21,15 @@ class Game
   def take_turn
     start_end = [nil, nil].map { |el| render_loop }
     @board.move_piece(start_end[0], start_end[1])
-    @display.render
+    # @display.render
   end
 
   def render_loop
     @display.render
     while true
       next_pos = @display.cursor.get_input # results in user entered position
-      break if next_pos
       system("clear")
+      break if next_pos
       @display.render
     end
     next_pos
