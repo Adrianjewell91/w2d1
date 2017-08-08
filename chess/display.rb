@@ -30,9 +30,9 @@ class Display
   def print_row(row, row_idx)
     row.map.with_index do |el, col_idx|
       if @cursor.cursor_pos == [row_idx, col_idx]
-        ' P '.colorize(:background => :light_blue)
+        " #{@board[[row_idx,col_idx]].icon} ".colorize(:background => :light_blue)
       elsif el
-        ' P '.colorize(:background => :light_green)
+        " #{@board[[row_idx,col_idx]].icon} ".colorize(:background => :light_green)
       else
         '   '.colorize(:background => :light_green)
       end

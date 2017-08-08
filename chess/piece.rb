@@ -3,7 +3,8 @@ require 'singleton'
 
 class Piece
   attr_accessor :pos
-
+  attr_reader :icon
+  
   def initialize(pos)
     @pos = pos
   end
