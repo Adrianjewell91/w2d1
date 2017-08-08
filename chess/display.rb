@@ -1,3 +1,4 @@
+require 'byebug'
 require 'colorize'
 require_relative 'cursor.rb'
 require_relative 'board.rb'
@@ -28,13 +29,20 @@ class Display
   private
 
   def print_row(row, row_idx)
+    # debugger
     row.map.with_index do |el, col_idx|
-      if @cursor.cursor_pos == [row_idx, col_idx]
-        " #{@board[[row_idx,col_idx]].icon} ".colorize(:background => :light_blue)
-      elsif el
-        " #{@board[[row_idx,col_idx]].icon} ".colorize(:background => :light_green)
+      if el != NullPiece.instance
+        if @cursor.cursor_pos == [row_idx, col_idx]
+          " #{@board[[row_idx,col_idx]].icon} ".colorize(:background => :light_blue)
+        else
+          " #{@board[[row_idx,col_idx]].icon} ".colorize(:background => :light_green)
+        end
       else
-        '   '.colorize(:background => :light_green)
+        if @cursor.cursor_pos == [row_idx, col_idx]
+          '   '.colorize(:background => :light_blue)
+        else
+          '   '.colorize(:background => :light_green)
+        end
       end
     end
   end
@@ -43,7 +51,10 @@ end
 
 
 if __FILE__ == $PROGRAM_NAME
-  d = Display.new(Board.new)
+  board = Board.new
+  board.populate
+
+  d = Display.new(board)
   d.render_loop
 
 end
