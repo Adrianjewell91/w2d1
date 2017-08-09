@@ -10,6 +10,7 @@ class Piece
   end
 
   def moves(pos)
+
   end
 
 end
@@ -85,9 +86,6 @@ class King < Piece
     super(pos)
   end
 
-  def move_dirs
-    [:horizontal, :vertical, :diagonal]
-  end
 end
 
 class Knight < Piece
@@ -101,9 +99,6 @@ class Knight < Piece
     super(pos)
   end
 
-  def move_dirs
-    [:horizontal, :vertical] # 'L' shape?
-  end
 end
 
 class Pawn < Piece
@@ -117,7 +112,4 @@ class Pawn < Piece
     super(pos)
   end
 
-  def move_dirs
-    [:vertical, :diagonal]
-  end
 end

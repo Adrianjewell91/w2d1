@@ -43,10 +43,11 @@ class Game
 end
 
 
-if __FILE__ == $PROGRAM_NAME
-
-  game = Game.new
-  game.setup
-  game.play
-
-end
+# if __FILE__ == $PROGRAM_NAME
+#
+#   game = Game.new
+#   game.setup
+#   game
+#   # move rook to [5,5], call #moves on rook -- should result in array of moves
+#
+# end
