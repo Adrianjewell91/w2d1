@@ -73,6 +73,5 @@ if __FILE__ == $PROGRAM_NAME
   b = Board.new
   b.populate
   b.move_piece([0,0],[3,4])
-  # debugger
-  p b[[3,4]].moves(:horizontal, b)
+  p b[[3,4]].moves(b)
 end

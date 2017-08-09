@@ -1,9 +1,11 @@
 require 'byebug'
+
 module SlidingPiece
-  def moves(direction, board) #gets direction from class.
+# debugger
+  def moves(board) #gets direction from class.
     possible_moves = []
       move_dirs.each do |direction|
-        if direction == :horizontal
+        if direction == :vertical
           current_pos = @pos.dup
           possible_moves << current_pos.dup
           current_pos[0] += 1
@@ -19,10 +21,25 @@ module SlidingPiece
               current_pos[0] += 1
             end
           end
+
+          current_pos = @pos.dup
+          current_pos[0] -= 1
+          while true
+            case valid_test_move(current_pos,board)
+            when :same_color, :off_grid
+              break
+            when :diff_color
+              possible_moves << current_pos.dup
+              break
+            else
+              possible_moves << current_pos.dup
+              current_pos[0] -= 1
+            end
+          end
         end
       end
-    possible_moves
-  end
+      possible_moves
+    end
 
   def valid_test_move(current_pos, board)
     if current_pos[0] < 0 || current_pos[0] > 7
@@ -35,6 +52,7 @@ module SlidingPiece
       :diff_color
     end
   end
+
 end
 
 
